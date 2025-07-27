@@ -8,7 +8,12 @@
 import SwiftUI
 
 struct AddView: View {
+    @Environment(ListViewModel.self) private var viewModel
+    @Environment(\.dismiss) private var dismiss
     @State var textFieldValue: String = ""
+    @State var showAlert: Bool = false
+    @State var alertTitle: String = ""
+    @State var alertMessage: String = ""
     
     var body: some View {
         ScrollView {
@@ -22,9 +27,7 @@ struct AddView: View {
                 .padding(.horizontal)
             
             Button(
-                action: {
-                
-                }, label: {
+                action: saveItem, label: {
                     Text("Save")
                         .font(.headline)
                         .frame(maxWidth: .infinity)
@@ -37,6 +40,31 @@ struct AddView: View {
             .controlSize(.large)
         }
         .navigationTitle("Add an Item ✏️")
+        .alert(isPresented: $showAlert, content: getAlert)
+        
+    }
+    
+    func saveItem() {
+        if isValidValue() {
+            viewModel.addItem(title: textFieldValue)
+            dismiss()
+        } else {
+            showAlert.toggle()
+            alertTitle = "Input is not valid"
+            alertMessage = "Input should more that 3 characters"
+        }
+    }
+    
+    func isValidValue() -> Bool {
+        return textFieldValue.count < 3
+    }
+}
+
+extension AddView {
+    func getAlert() -> Alert {
+        return Alert(
+                title: Text(alertTitle),
+                message: Text(alertMessage))
     }
 }
 
@@ -44,4 +72,5 @@ struct AddView: View {
     NavigationView {
         AddView()
     }
+    .environment(ListViewModel())
 }
