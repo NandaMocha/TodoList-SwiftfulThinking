@@ -56,7 +56,7 @@ struct AddView: View {
     }
     
     func isValidValue() -> Bool {
-        return textFieldValue.count < 3
+        return textFieldValue.count > 3
     }
 }
 
