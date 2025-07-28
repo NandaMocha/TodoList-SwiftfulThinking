@@ -21,8 +21,7 @@ struct AddView: View {
                 .padding(.horizontal)
                 .frame(height: 55)
                 .background(
-                    Color.gray
-                        .opacity(0.3)
+                    Color(UIColor.secondarySystemBackground)
                         .clipShape(.rect(cornerRadius: 10)))
                 .padding(.horizontal)
             

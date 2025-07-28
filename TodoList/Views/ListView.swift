@@ -25,7 +25,7 @@ struct ListView: View {
         }
         .navigationTitle("Todo List 📝")
         .toolbar {
-            if !viewModel.items.isEmpty {
+//            if !viewModel.items.isEmpty {
                 ToolbarItem(placement: .topBarTrailing) {
                     NavigationLink("Add") {
                         AddView()
@@ -37,7 +37,7 @@ struct ListView: View {
                     EditButton()
                         .tint(.accentColor)
                 }
-            }
+//            }
         }
         .listStyle(.plain)
     }
