@@ -25,7 +25,7 @@ struct ListView: View {
         }
         .navigationTitle("Todo List 📝")
         .toolbar {
-//            if !viewModel.items.isEmpty {
+            if !viewModel.items.isEmpty {
                 ToolbarItem(placement: .topBarTrailing) {
                     NavigationLink("Add") {
                         AddView()
@@ -37,24 +37,24 @@ struct ListView: View {
                     EditButton()
                         .tint(.accentColor)
                 }
-//            }
+            }
         }
         .listStyle(.plain)
     }
     
     func showItemList() -> some View {
         return List {
-                    ForEach(viewModel.items) { item in
-                        ListRowView(item: item)
-                            .onTapGesture {
-                                withAnimation(.linear) {
-                                    viewModel.updateItem(itm: item)
-                                }
-                            }
+            ForEach(viewModel.items) { item in
+                ListRowView(item: item)
+                    .onTapGesture {
+                        withAnimation(.linear) {
+                            viewModel.updateItem(itm: item)
+                        }
                     }
-                    .onDelete(perform: viewModel.deleteItem)
-                    .onMove(perform: viewModel.onMove)
-                }
+            }
+            .onDelete(perform: viewModel.deleteItem)
+            .onMove(perform: viewModel.onMove)
+        }
     }
     
 }
