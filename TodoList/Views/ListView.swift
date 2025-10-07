@@ -9,6 +9,7 @@ import SwiftUI
 
 struct ListView: View {
     @Environment(ListViewModel.self) private var viewModel
+    var flag: Bool = false
     
     var body: some View {
         ZStack {
