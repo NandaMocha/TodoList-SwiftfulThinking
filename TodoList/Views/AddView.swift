@@ -38,7 +38,7 @@ struct AddView: View {
             .buttonBorderShape(.roundedRectangle(radius: 10))
             .controlSize(.large)
         }
-        .navigationTitle("Add an Item ✏️")
+        .navigationTitle("Add an To-Do Task ✏️")
         .alert(isPresented: $showAlert, content: getAlert)
         
     }

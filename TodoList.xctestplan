@@ -1,0 +1,18 @@
+{
+  "configurations" : [
+    {
+      "id" : "1B852570-E021-4354-BB25-C7431D480AA7",
+      "name" : "Configuration 1",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "testTimeoutsEnabled" : true
+  },
+  "testTargets" : [
+
+  ],
+  "version" : 1
+}
