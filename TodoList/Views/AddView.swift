@@ -17,7 +17,7 @@ struct AddView: View {
     
     var body: some View {
         ScrollView {
-            TextField("Type something here", text: $textFieldValue)
+            TextField("Ketik disini", text: $textFieldValue)
                 .padding(.horizontal)
                 .frame(height: 55)
                 .background(
