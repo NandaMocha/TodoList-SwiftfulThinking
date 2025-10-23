@@ -12,7 +12,13 @@
     "testTimeoutsEnabled" : true
   },
   "testTargets" : [
-
+    {
+      "target" : {
+        "containerPath" : "container:TodoList.xcodeproj",
+        "identifier" : "0468D1972E9E66870061D669",
+        "name" : "TodoListTests"
+      }
+    }
   ],
   "version" : 1
 }
