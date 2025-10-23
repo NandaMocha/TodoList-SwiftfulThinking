@@ -36,15 +36,17 @@ struct ListViewModelTests {
     // MARK: - Tests
     @Test("addItem to viewModel")
     func addItemToViewModel() throws {
+        // Given: inisialisasi view model
         clearPersistedItems()
-        
         let viewModel = ListViewModel()
         viewModel.itemsKey = itemsKey
 
+        // When: menambahkan data ke todo list
         viewModel.addItem(title: "A")
         viewModel.addItem(title: "B")
         viewModel.addItem(title: "C")
         
+        // Then: data sudah tersimpan
         #expect(viewModel.items.map(\.title) == ["A", "B", "C"])
     }
 
