@@ -32,22 +32,38 @@ struct ListViewModelTests {
         else { return [] }
         return try JSONDecoder().decode([ItemModel].self, from: data)
     }
-
+    
     // MARK: - Tests
+    @Test("addItem to viewModel")
+    func addItemToViewModel() throws {
+        clearPersistedItems()
+        
+        let viewModel = ListViewModel()
+        viewModel.itemsKey = itemsKey
+
+        viewModel.addItem(title: "A")
+        viewModel.addItem(title: "B")
+        viewModel.addItem(title: "C")
+        
+        #expect(viewModel.items.map(\.title) == ["A", "B", "C"])
+    }
+
     @Test("onMove(_:to:) reorders items and persists")
     func onMove_reordersAndPersists() throws {
         // Given: urutan A, B, C
         clearPersistedItems()
-        let sut = ListViewModel()
-        sut.addItem(title: "A")
-        sut.addItem(title: "B")
-        sut.addItem(title: "C")
+        let viewModel = ListViewModel()
+        viewModel.itemsKey = itemsKey
+        
+        viewModel.addItem(title: "A")
+        viewModel.addItem(title: "B")
+        viewModel.addItem(title: "C")
 
         // When: pindahkan A (index 0) ke setelah C (toOffset 3)
-        sut.onMove(indexSet: IndexSet(integer: 0), index: 3)
+        viewModel.onMove(indexSet: IndexSet(integer: 0), index: 3)
 
         // Then: urutan menjadi B, C, A dan tersimpan
-        #expect(sut.items.map(\.title) == ["B", "C", "A"])
+        #expect(viewModel.items.map(\.title) == ["B", "C", "A"])
         let disk = try readPersistedItems()
         #expect(disk.map(\.title) == ["B", "C", "A"])
     }
