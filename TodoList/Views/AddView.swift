@@ -17,7 +17,7 @@ struct AddView: View {
     
     var body: some View {
         ScrollView {
-            TextField("Type something here", text: $textFieldValue)
+            TextField("Ketik disini", text: $textFieldValue)
                 .padding(.horizontal)
                 .frame(height: 55)
                 .background(
@@ -38,7 +38,7 @@ struct AddView: View {
             .buttonBorderShape(.roundedRectangle(radius: 10))
             .controlSize(.large)
         }
-        .navigationTitle("Add an Item ✏️")
+        .navigationTitle("Add an To-Do Task ✏️")
         .alert(isPresented: $showAlert, content: getAlert)
         
     }
