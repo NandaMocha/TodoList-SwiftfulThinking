@@ -11,6 +11,6 @@ All your data, including tasks and settings, are stored **locally on your device
 No analytics, tracking, or advertising SDKs are used.
 
 If you have any questions or concerns about this privacy policy, you can contact the developer at:  
-📧 example@email.com
+📧 razisilberstein@icloud.com
 
 © 2025 Mehrnaz Kimiyazadeh. All rights reserved.
